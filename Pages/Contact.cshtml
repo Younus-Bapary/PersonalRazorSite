@@ -1,0 +1,159 @@
+@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<header class="site-header sticky-top">
+    <nav id="mainNav" class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold brand-mark" asp-page="/Index">Personal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 text-uppercase small fw-semibold">
+                    <li class="nav-item"><a class="nav-link" asp-page="/Index" asp-fragment="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Index" asp-fragment="about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Index" asp-fragment="services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Index" asp-fragment="portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Index" asp-fragment="pricing">Pricing</a></li>
+                    @* <li class="nav-item"><a class="nav-link" asp-page="/Index" asp-fragment="blog">Blog</a></li> *@
+                    <li class="nav-item"><a class="nav-link active" asp-page="/Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="page-hero-section bg-light-blue">
+        <div class="container py-5">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <p class="section-kicker">GET IN TOUCH</p>
+                    <h1 class="hero-title mb-3">Contact Me</h1>
+                    <p class="hero-copy mb-0">Let’s talk about your next website, web app, cybersecurity service, or digital product. This page keeps the same clean visual style as the homepage while giving you a dedicated contact experience.</p>
+                </div>
+                <div class="col-lg-5 text-lg-end">
+                    <div class="contact-hero-card shadow-sm ms-lg-auto">
+                        <div class="contact-hero-label">Response Time</div>
+                        <div class="contact-hero-value">Within 24 Hours</div>
+                        <p class="mb-0">Available for freelance, internships, portfolio reviews, and collaboration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-gap">
+        <div class="container">
+            <div class="row g-4 g-lg-5 align-items-stretch">
+                <div class="col-lg-5">
+                    <div class="contact-info-panel h-100">
+                        <p class="section-kicker mb-3">CONTACT INFORMATION</p>
+                        <h2 class="section-title text-start mb-4">Start a conversation</h2>
+                        <p class="section-copy text-start mb-4">Use this page to highlight your professional identity and make it simple for recruiters, clients, and collaborators to reach you.</p>
+
+                        <div class="contact-detail-list">
+                            <div class="contact-detail-item">
+                                <div>
+                                    <h3>Email Address</h3>
+                                    <p>hello@example.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div>
+                                    <h3>Phone Number</h3>
+                                    <p>+44 7000 000000</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div>
+                                    <h3>Location</h3>
+                                    <p>United Kingdom</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div>
+                                    <h3>Working Focus</h3>
+                                    <p>ASP.NET Core, software development, cybersecurity, and digital solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="contact-form-panel h-100">
+                        <p class="section-kicker mb-3">SEND MESSAGE</p>
+                        <h2 class="section-title text-start mb-4">Let’s build something great</h2>
+                        <form method="post" class="contact-form">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label asp-for="Input.Name" class="form-label"></label>
+                                    <input asp-for="Input.Name" class="form-control" placeholder="Enter your name" />
+                                    <span asp-validation-for="Input.Name" class="text-danger small"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="Input.Email" class="form-label"></label>
+                                    <input asp-for="Input.Email" class="form-control" placeholder="Enter your email" />
+                                    <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                                </div>
+                                <div class="col-12">
+                                    <label asp-for="Input.Subject" class="form-label"></label>
+                                    <input asp-for="Input.Subject" class="form-control" placeholder="Project subject" />
+                                    <span asp-validation-for="Input.Subject" class="text-danger small"></span>
+                                </div>
+                                <div class="col-12">
+                                    <label asp-for="Input.Message" class="form-label"></label>
+                                    <textarea asp-for="Input.Message" class="form-control" rows="7" placeholder="Tell me about your project, opportunity, or idea"></textarea>
+                                    <span asp-validation-for="Input.Message" class="text-danger small"></span>
+                                </div>
+                                <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center gap-3">
+                                    <button type="submit" class="btn primary-btn px-4 py-3 text-uppercase fw-semibold">Send Message</button>
+                                    @if (!string.IsNullOrWhiteSpace(Model.SuccessMessage))
+                                    {
+                                        <div class="alert alert-success py-2 px-3 mb-0">@Model.SuccessMessage</div>
+                                    }
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <h3>About Me</h3>
+                <p>This contact page is ready to customize with your real details, business email, WhatsApp number, LinkedIn link, and location.</p>
+                <p class="copyright-note">Copyright © @DateTime.UtcNow.Year All rights reserved | This template is made with ❤ by Colorlib-inspired Razor conversion.</p>
+            </div>
+            <div class="col-lg-4">
+                <h3>Quick Links</h3>
+                <p><a class="footer-link" asp-page="/Index" asp-fragment="portfolio">View Portfolio</a></p>
+                <p><a class="footer-link" asp-page="/Index" asp-fragment="services">Explore Services</a></p>
+                <p><a class="footer-link" asp-page="/Index" asp-fragment="blog">Read Blog</a></p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Follow Me</h3>
+                <p>Let us be social.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">Fb</a>
+                    <a href="#" aria-label="Twitter">Tw</a>
+                    <a href="#" aria-label="Dribbble">Dr</a>
+                    <a href="#" aria-label="Behance">Be</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
